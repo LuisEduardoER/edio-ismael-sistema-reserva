@@ -2,8 +2,10 @@ package br.com.novaroma.Negocio;
 
 import javax.faces.bean.ManagedBean;
 
+import br.com.Framework.generics.Negocio.EntidadeGenerics;
+
 @ManagedBean
-public class Cliente {
+public class Cliente extends EntidadeGenerics<Cliente>{
 
 	private String nome;
 	private String cpf;
@@ -63,6 +65,7 @@ public class Cliente {
 		this.idade = idade;
 	}
 	
+	@Override
 	public boolean equals (Object obj){
 		
 		if (obj instanceof Cliente){
@@ -73,5 +76,17 @@ public class Cliente {
 		}
 		else 
 			return false;
+	}
+	
+	@Override
+	public int compareTo(Cliente cliente) {
+		
+		if (cliente.getIdade() < this.idade)
+			return -1;
+		else if (cliente.getIdade() > this.idade)
+			return 1;
+		else 
+			0;
+		return 0;
 	}
 }

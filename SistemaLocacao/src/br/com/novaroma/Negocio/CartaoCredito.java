@@ -1,16 +1,18 @@
 package br.com.novaroma.Negocio;
 
-public class CartaoCredito {
+import br.com.Framework.generics.Negocio.EntidadeGenerics;
 
-	private String numCartao;
+public class CartaoCredito extends EntidadeGenerics<CartaoCredito>{
+
+	private int numCartao;
 	private String bandeira;
 	private String validade;
 	private String codSeguranca;
 	
-	public String getNumCartao() {
+	public int getNumCartao() {
 		return numCartao;
 	}
-	public void setNumCartao(String numCartao) {
+	public void setNumCartao(int numCartao) {
 		this.numCartao = numCartao;
 	}
 	public String getBandeira() {
@@ -32,10 +34,11 @@ public class CartaoCredito {
 		this.codSeguranca = codSeguranca;
 	}
 	
+	@Override
 	public boolean equals(Object obj){
 		
 		if (obj instanceof CartaoCredito){
-			if (((CartaoCredito)obj).getNumCartao().equals(this.numCartao) 
+			if (((CartaoCredito)obj).getNumCartao() == this.numCartao 
 				&& ((CartaoCredito)obj).getCodSeguranca().equals(this.codSeguranca))
 				return true;
 			else
@@ -43,5 +46,15 @@ public class CartaoCredito {
 		}
 		else
 			return false;
+	}
+	@Override
+	public int compareTo(CartaoCredito cartao) {
+		
+		if (cartao.getNumCartao() < this.numCartao)
+			return -1;
+		else if (cartao.getNumCartao() > this.numCartao)
+			return 1;
+		else
+			return 0;
 	}
 }
