@@ -2,8 +2,10 @@ package br.com.novaroma.Negocio;
 
 import javax.faces.bean.ManagedBean;
 
+import br.com.Framework.generics.Negocio.EntidadeGenerics;
+
 @ManagedBean
-public class Carro {
+public class Carro extends EntidadeGenerics<Carro>{
 
 	private String placa;
 	private String chassis;
@@ -73,5 +75,16 @@ public class Carro {
 		}
 		else 
 			return false;
+	}
+	@Override
+	
+	public int compareTo(Carro carro) {
+		
+		if (carro.getAno() < this.ano)
+			return -1;
+		else if (carro.getAno() > this.ano)
+			return 1;
+		else
+			return 0;
 	}
 }
