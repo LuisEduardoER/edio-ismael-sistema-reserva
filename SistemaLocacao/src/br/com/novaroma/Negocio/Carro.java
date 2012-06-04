@@ -7,6 +7,7 @@ import br.com.Framework.generics.Negocio.EntidadeGenerics;
 @ManagedBean
 public class Carro extends EntidadeGenerics<Carro>{
 
+	private int codigo;
 	private String placa;
 	private String chassis;
 	private double km;
@@ -16,6 +17,12 @@ public class Carro extends EntidadeGenerics<Carro>{
 	private int ano;
 	private TipoSituacao situacao;
 	
+	public int getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 	public String getPlaca() {
 		return placa;
 	}

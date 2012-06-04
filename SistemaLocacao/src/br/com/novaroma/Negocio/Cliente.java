@@ -1,5 +1,7 @@
 package br.com.novaroma.Negocio;
 
+import java.sql.Date;
+
 import javax.faces.bean.ManagedBean;
 
 import br.com.Framework.generics.Negocio.EntidadeGenerics;
@@ -7,15 +9,22 @@ import br.com.Framework.generics.Negocio.EntidadeGenerics;
 @ManagedBean
 public class Cliente extends EntidadeGenerics<Cliente>{
 
+	private int codigo;
 	private String nome;
 	private String cpf;
 	private String cnh;
 	private String telefone;
 	private String endereco;
-	private String tempoCnh;
+	private Date tempoCnh;
 	private TipoCliente tipo;
 	private int idade;
-	
+
+	public int getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -46,10 +55,10 @@ public class Cliente extends EntidadeGenerics<Cliente>{
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public String getTempoCnh() {
+	public Date getTempoCnh() {
 		return tempoCnh;
 	}
-	public void setTempoCnh(String tempoCnh) {
+	public void setTempoCnh(Date tempoCnh) {
 		this.tempoCnh = tempoCnh;
 	}
 	public TipoCliente getTipo() {
@@ -86,7 +95,6 @@ public class Cliente extends EntidadeGenerics<Cliente>{
 		else if (cliente.getIdade() > this.idade)
 			return 1;
 		else 
-			0;
-		return 0;
+			return 0;
 	}
 }

@@ -4,11 +4,19 @@ import br.com.Framework.generics.Negocio.EntidadeGenerics;
 
 public class CartaoCredito extends EntidadeGenerics<CartaoCredito>{
 
+	private int codigo;
 	private int numCartao;
 	private String bandeira;
 	private String validade;
 	private String codSeguranca;
+	private int cliente_id;
 	
+	public int getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 	public int getNumCartao() {
 		return numCartao;
 	}
@@ -32,6 +40,12 @@ public class CartaoCredito extends EntidadeGenerics<CartaoCredito>{
 	}
 	public void setCodSeguranca(String codSeguranca) {
 		this.codSeguranca = codSeguranca;
+	}
+	public int getCliente_id() {
+		return cliente_id;
+	}
+	public void setCliente_id(int cliente_id) {
+		this.cliente_id = cliente_id;
 	}
 	
 	@Override
@@ -57,4 +71,4 @@ public class CartaoCredito extends EntidadeGenerics<CartaoCredito>{
 		else
 			return 0;
 	}
-}
+	}

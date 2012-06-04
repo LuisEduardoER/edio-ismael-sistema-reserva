@@ -1,17 +1,31 @@
 package br.com.novaroma.Negocio;
 
+import java.sql.Date;
+
 import br.com.Framework.generics.Negocio.EntidadeGenerics;
 
 public class Aluguel extends EntidadeGenerics<Aluguel>{
 
+	private int codigo;
 	private int numAluguel;
-	private String dataAluguel;
-	private String dataDevolucao;
+	private Date dataAluguel;
+	private Date dataDevolucao;
 	private boolean vistoriado;
 	private boolean assinado;
 	private String bloqueioCartao;
 	private StatusPagamento pagamento;
-	
+	private int carro_id;
+	private int cliente_id;
+	private int motorista_id;
+		
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
 	public int getNumAluguel() {
 		return numAluguel;
 	}
@@ -20,19 +34,19 @@ public class Aluguel extends EntidadeGenerics<Aluguel>{
 		this.numAluguel = numAluguel;
 	}
 
-	public String getDataAluguel() {
+	public Date getDataAluguel() {
 		return dataAluguel;
 	}
 
-	public void setDataAluguel(String dataAluguel) {
+	public void setDataAluguel(Date dataAluguel) {
 		this.dataAluguel = dataAluguel;
 	}
 
-	public String getDataDevolucao() {
+	public Date getDataDevolucao() {
 		return dataDevolucao;
 	}
 
-	public void setDataDevolucao(String dataDevolucao) {
+	public void setDataDevolucao(Date dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
 	}
 
@@ -67,13 +81,37 @@ public class Aluguel extends EntidadeGenerics<Aluguel>{
 	public void setPagamento(StatusPagamento pagamento) {
 		this.pagamento = pagamento;
 	}
+	
+	public int getCarro_id() {
+		return carro_id;
+	}
+
+	public void setCarro_id(int carro_id) {
+		this.carro_id = carro_id;
+	}
+
+	public int getCliente_id() {
+		return cliente_id;
+	}
+
+	public void setCliente_id(int cliente_id) {
+		this.cliente_id = cliente_id;
+	}
+
+	public int getMotorista_id() {
+		return motorista_id;
+	}
+
+	public void setMotorista_id(int motorista_id) {
+		this.motorista_id = motorista_id;
+	}
 
 	@Override
 	public int compareTo(Aluguel aluguel) {
 		
-		if (aluguel.getNumAluguel() < this.numAluguel) 
+		if (aluguel.getDataAluguel().before(this.dataAluguel))
 			return -1;
-		else if (aluguel.getNumAluguel() > this.numAluguel)
+		else if (aluguel.getDataAluguel().after(this.dataAluguel))
 			return 1;
 		else
 			return 0;
@@ -90,6 +128,5 @@ public class Aluguel extends EntidadeGenerics<Aluguel>{
 		}
 		else
 			return false;
-		return false;
 	}
 }

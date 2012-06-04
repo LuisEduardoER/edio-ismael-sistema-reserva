@@ -4,12 +4,21 @@ import br.com.Framework.generics.Negocio.EntidadeGenerics;
 
 public class Grupo extends EntidadeGenerics<Grupo>{
 
+	private int codigo;
 	private String nome;
 	private Double preco;
+	private int carro_id;
+	
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 
 	public String getNome() {
 		return nome;
-
 	}
 
 	public void setNome(String nome) {
@@ -23,7 +32,15 @@ public class Grupo extends EntidadeGenerics<Grupo>{
 	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
-	
+
+	public int getCarro_id() {
+		return carro_id;
+	}
+
+	public void setCarro_id(int carro_id) {
+		this.carro_id = carro_id;
+	}
+
 	@Override
 	public boolean equals(Object obj){
 		

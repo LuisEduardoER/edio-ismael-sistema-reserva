@@ -1,14 +1,25 @@
 package br.com.novaroma.Negocio;
 
+import java.sql.Date;
+
 import br.com.Framework.generics.Negocio.EntidadeGenerics;
 
 public class Motorista extends EntidadeGenerics<Motorista>{
 	
+	private int codigo;
 	private String nome;
 	private String cpf;
 	private String cnh;
-	private String tempoCnh;
+	private Date tempoCnh;
 	private int idade;
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 
 	public String getNome() {
 		return nome;
@@ -34,11 +45,11 @@ public class Motorista extends EntidadeGenerics<Motorista>{
 		this.cnh = cnh;
 	}
 
-	public String getTempoCnh() {
+	public Date getTempoCnh() {
 		return tempoCnh;
 	}
 
-	public void setTempoCnh(String tempoCnh) {
+	public void setTempoCnh(Date tempoCnh) {
 		this.tempoCnh = tempoCnh;
 	}
 
